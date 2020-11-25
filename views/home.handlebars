@@ -1,0 +1,20 @@
+<h1>Message Board</h1>
+
+{{#each posts}}
+    <section>
+        <h4>{{this.posterName}}</h4>
+        <p>{{this.postText}}</p>
+        <small>{{this.dateTime}}</small>
+    </section>
+{{/each}}
+
+{{#if user}}
+    <h3>Create a post here</h3>
+
+    <form action="/post" method="POST">
+        <textarea maxlength="50" rows="1" placeholder="Type here..." name="postText"></textarea>
+        <button type="submit" class="button">Send</button>
+    </form>
+{{else}}
+    <p><a href="/login">Login</a> or <a href="/register">register</a> to send a message.</p>
+{{/if}}
