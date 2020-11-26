@@ -4,3 +4,22 @@
     background: lavender;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+small {
+  font-family: TitleFont, monospace;
+  font-size: 80%;
+}
+
+section {
+  border-top-color: black;
+  border-top-width: 2px;
+}
+
+h4 {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+#postArea {
+  padding-top: 40px;
+}

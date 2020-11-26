@@ -9,6 +9,7 @@
 {{/each}}
 
 {{#if user}}
+<div id=postArea>
     <h3>Create a post here</h3>
 
     <a href="/logout">logout</a>
@@ -16,6 +17,7 @@
         <textarea maxlength="50" rows="1" placeholder="Type here..." name="postText"></textarea>
         <button type="submit" class="button">Send</button>
     </form>
+</div>
 {{else}}
     <p><a href="/login">Login</a> or <a href="/register">register</a> to send a message.</p>
 {{/if}}
