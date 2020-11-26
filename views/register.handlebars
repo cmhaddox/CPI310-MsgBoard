@@ -1,0 +1,21 @@
+<h1>Register</h1><br>
+
+{{#if error}}
+    <h3>{{error}}</h3>
+{{/if}}
+
+<form action="/register" method="POST">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="example@example.com" size="22" maxlength="20">
+    <br><br>
+
+    <label>Username</label>
+    <input type="text" name="username" placeholder="username" size="17" maxlength="15">
+    <br><br>
+
+    <label>Password</label>
+    <input type="password" name="password" placeholder="password" size="17" maxlength="15">
+    <br><br>
+
+    <button type="submit" class="button">Submit</button>
+</form>

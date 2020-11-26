@@ -11,6 +11,7 @@
 {{#if user}}
     <h3>Create a post here</h3>
 
+    <a href="/logout">logout</a>
     <form action="/post" method="POST">
         <textarea maxlength="50" rows="1" placeholder="Type here..." name="postText"></textarea>
         <button type="submit" class="button">Send</button>
