@@ -34,7 +34,7 @@ const lookupUserFromAccessToken = async(accessToken) => {
     const token = await db.get('SELECT * FROM AccessTokens WHERE token=?;', accessToken);
 
     if(!token) {
-        !null;
+        return null;
     }
 
     const user = await db.get('SELECT id, email, username FROM Users WHERE id=?;', token.userId);
@@ -111,7 +111,6 @@ app.post("/register", async(req,res) => {
     } = req.body;
 
     const passwordHash = await bcrypt.hash(password, 10);
-    console.log("User entered " + username + " " + email + " " + passwordHash);
 
     try {
         await db.run('INSERT INTO Users (username, email, password) VALUES (?, ?, ?);',
@@ -199,6 +198,12 @@ app.post("/post", async (req, res, next) => {
         status: 401,
         message: 'You must be logged in to post'
     })
+})
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500)
+    console.log(err);
+    res.render('errorPage', {error: err.message || err})
 })
 
 /*
